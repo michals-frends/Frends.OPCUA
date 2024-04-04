@@ -1,0 +1,51 @@
+﻿using Opc.Ua;
+using Opc.Ua.Client;
+
+namespace Frends.OPCUA.WriteTags.Services;
+
+internal class OpcUaSessionBase
+{
+    public OpcUaSessionBase(ApplicationConfiguration clientConfig, string serverUrl)
+    {
+        ClientConfig = clientConfig ?? throw new ArgumentException("Client config must be specified", nameof(clientConfig));
+        ServerUrl = string.IsNullOrEmpty(serverUrl) ? throw new ArgumentException("Server URL must be specified", nameof(serverUrl)) : serverUrl;
+    }
+
+    private const uint SessionLifeTime = 60000;
+    public ApplicationConfiguration ClientConfig { get; }
+    public string ServerUrl { get; }
+    public IUserIdentity? UserIdentity { get; set; } = null;
+
+    protected virtual async Task<ISession> CreateSessionAsync(CancellationToken ct = default)
+    {
+        try
+        {
+            var f = DefaultSessionFactory.Instance;
+
+            ITransportWaitingConnection? connection = null;
+            var endpointDescription = CoreClientUtils.SelectEndpoint(ClientConfig, ServerUrl, false);
+
+            var endpointConfiguration = EndpointConfiguration.Create(ClientConfig);
+            var endpoint = new ConfiguredEndpoint(null, endpointDescription, endpointConfiguration);
+
+            var session =
+                await f.CreateAsync(
+                    ClientConfig,
+                    connection,
+                    endpoint,
+                    connection == null,
+                    false,
+                    ClientConfig.ApplicationName,
+                    SessionLifeTime,
+                    UserIdentity,
+                    null,
+                    ct
+                ).ConfigureAwait(false);
+            return session;
+        }
+        catch (Exception e)
+        {
+            throw new OpcSessionException("Could not create session", e);
+        }
+    }
+}

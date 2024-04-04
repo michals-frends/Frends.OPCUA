@@ -1,4 +1,6 @@
-﻿namespace Frends.OPCUA.WriteTags.Tests.Units;
+﻿using Frends.OPCUA.WriteTags.Definitions;
+
+namespace Frends.OPCUA.WriteTags.Tests.Units;
 
 public class TestTaskInput: Input
 {

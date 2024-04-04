@@ -2,8 +2,6 @@
 FRENDS Tasks for OPC UA Write Data operation
 
 - [Installing](#installing)
-- [Tasks](#tasks)
-    - [WriteTags](#writetags)
 - [License](#license)
 - [Building](#building)
 - [Contributing](#contributing)
@@ -12,39 +10,6 @@ Installing
 ==========
 
 You can install the task via FRENDS UI Task view, by searching for packages.
-
-Tasks
-=====
-
-## WriteTags
-
-The OPCUA.WriteTags task is simple UPC AU Write Data operation.
-
-Input:
-
-| Property    | Type                                  | Description                             | Example                                                       |
-|-------------|---------------------------------------|-----------------------------------------|---------------------------------------------------------------|
-| Url         | string                                | The URL with protocol and path to call. | `opc.tcp://foo.example.org:62541/Quickstarts/ReferenceServer` |
-| WriteValues | Array {NodeId: string, Value: object} | List of tags to be written.             | `NodeId = ns=2;s=some_scalar_int, Value = 42`                 |
-
-Options:
-
-| Property                       | Type                           | Description                                                                    |
-|--------------------------------|--------------------------------|--------------------------------------------------------------------------------|
-| Application Name               | string                         | Name of application to be sent with request                                    |
-| Authentication                 | Enum(Anonymous, UserIdentity ) | Different options for authentication for the OPCUA request.                    |
-| Username                       | string                         | This field is available for UserIdentity. Specify username required by server. |
-| Password                       | string                         | This field is available for UserIdentity Authentication.                       |
-| Trust Server Certificate       | bool                           | Should client accept any certificate used by server                            |
-| Trusted Certificate Thumbprint | string                         | Thumbprint of trusted certificate used by server                               |
-
-Result:
-
-| Property         | Type                                                     | Description                      |
-|------------------|----------------------------------------------------------|----------------------------------|
-| IsAllSuccess     | bool                                                     | Are all write operations success |
-| WriteValueResult | Array{NodeId: string, Value: object, ResultCode: string} | Status of each write operation   |
-| Reason Code      | string                                                   | Message set in case of any error | 
 
 License
 =======
@@ -67,11 +32,17 @@ Rebuild the project
 
 Run tests
 
-`dotnet test Frends.Web.Tests`
+Create a reference OPC UA server docker:
+
+`docker-compose up`
+
+then run tests with
+
+`dotnet test`
 
 Create a nuget package
 
-`dotnet pack Frends.Web`
+`dotnet pack --configuration Release`
 
 Contributing
 ============

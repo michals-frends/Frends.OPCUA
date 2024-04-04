@@ -1,4 +1,7 @@
-﻿namespace Frends.OPCUA.WriteTags.Tests.Units;
+﻿using Frends.OPCUA.WriteTags.Definitions;
+using Frends.OPCUA.WriteTags.Services;
+
+namespace Frends.OPCUA.WriteTags.Tests.Units;
 
 public class OpcUaClientFactoryTests
 {

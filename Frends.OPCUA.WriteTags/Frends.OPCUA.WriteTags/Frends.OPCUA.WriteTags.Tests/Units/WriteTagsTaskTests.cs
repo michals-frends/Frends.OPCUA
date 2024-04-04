@@ -1,3 +1,5 @@
+using Frends.OPCUA.WriteTags.Definitions;
+using Frends.OPCUA.WriteTags.Services;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
 
@@ -11,7 +13,7 @@ public class WriteTagsTaskTests
     {
         var client = Substitute
             .For<IOpcUaClient>();
-        client.WriteDataAsync(Arg.Any<WriteValue[]>()).Returns(new WriteResult {IsAllSuccess = true});
+        client.WriteDataAsync(Arg.Any<WriteTagValue[]>()).Returns(new WriteResult {IsAllSuccess = true});
 
         var factory = Substitute
             .For<IOpcUaClientFactory>();
@@ -32,7 +34,7 @@ public class WriteTagsTaskTests
         const string expectedMessage = "Error_from_client";
         var client = Substitute
             .For<IOpcUaClient>();
-        client.WriteDataAsync(Arg.Any<WriteValue[]>()).Throws(new Exception(expectedMessage));
+        client.WriteDataAsync(Arg.Any<WriteTagValue[]>()).Throws(new Exception(expectedMessage));
 
         var factory = Substitute
             .For<IOpcUaClientFactory>();

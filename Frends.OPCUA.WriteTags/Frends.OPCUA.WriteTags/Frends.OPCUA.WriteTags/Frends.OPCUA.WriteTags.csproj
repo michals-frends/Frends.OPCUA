@@ -4,6 +4,17 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>1.0.0</Version>
+        <Authors>Frends</Authors>
+        <Copyright>Frends</Copyright>
+        <Company>Frends</Company>
+        <Product>Frends</Product>
+        <PackageTags>Frends</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Description>Write tags to OPC UA server.</Description>
+        <PackageProjectUrl>https://frends.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/FrendsPlatform/Frends.OPCUA</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

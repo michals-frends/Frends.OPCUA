@@ -1,4 +1,6 @@
-﻿using Opc.Ua;
+﻿using Frends.OPCUA.WriteTags.Definitions;
+using Frends.OPCUA.WriteTags.Services;
+using Opc.Ua;
 
 namespace Frends.OPCUA.WriteTags.Tests.Units;
 
@@ -57,7 +59,7 @@ public class OpcUaClientTests
 
         Assert.ThrowsAsync<ArgumentException>(async () =>
         {
-            await sut.WriteDataAsync(Array.Empty<WriteValue>());
+            await sut.WriteDataAsync(Array.Empty<WriteTagValue>());
         });
     }
 }
