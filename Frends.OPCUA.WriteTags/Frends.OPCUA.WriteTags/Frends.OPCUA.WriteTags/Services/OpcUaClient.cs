@@ -1,7 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using Frends.OPCUA.WriteTags.Definitions;
 using Opc.Ua;
-using Opc.Ua.Client;
 
 [assembly: InternalsVisibleTo("Frends.OPCUA.WriteTags.Tests")]
 namespace Frends.OPCUA.WriteTags.Services;

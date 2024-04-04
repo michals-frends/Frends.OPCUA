@@ -3,9 +3,9 @@ using Opc.Ua.Client;
 
 namespace Frends.OPCUA.WriteTags.Services;
 
-internal class OpcUaSessionBase
+internal abstract class OpcUaSessionBase
 {
-    public OpcUaSessionBase(ApplicationConfiguration clientConfig, string serverUrl)
+    protected OpcUaSessionBase(ApplicationConfiguration clientConfig, string serverUrl)
     {
         ClientConfig = clientConfig ?? throw new ArgumentException("Client config must be specified", nameof(clientConfig));
         ServerUrl = string.IsNullOrEmpty(serverUrl) ? throw new ArgumentException("Server URL must be specified", nameof(serverUrl)) : serverUrl;
@@ -14,7 +14,7 @@ internal class OpcUaSessionBase
     private const uint SessionLifeTime = 60000;
     public ApplicationConfiguration ClientConfig { get; }
     public string ServerUrl { get; }
-    public IUserIdentity? UserIdentity { get; set; } = null;
+    public IUserIdentity? UserIdentity { get; set; }
 
     protected virtual async Task<ISession> CreateSessionAsync(CancellationToken ct = default)
     {

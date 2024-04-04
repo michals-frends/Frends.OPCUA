@@ -1,4 +1,4 @@
-﻿namespace Frends.OPCUA.WriteTags;
+﻿namespace Frends.OPCUA.WriteTags.Definitions;
 
 /// <summary>
 /// Summary of write operation
