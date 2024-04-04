@@ -7,6 +7,6 @@ jobs:
   build:
     uses: FrendsPlatform/FrendsTasks/.github/workflows/release.yml@main
     with:
-      workdir: Frends.OPCUA.WriteTags/Frends.OPCUA.WriteTags
+      workdir: Frends.OPCUA.WriteTags
     secrets:
       feed_api_key: ${{ secrets.TASKS_FEED_API_KEY }}

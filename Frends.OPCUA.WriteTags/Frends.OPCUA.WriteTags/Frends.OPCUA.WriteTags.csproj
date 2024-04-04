@@ -21,4 +21,9 @@
       <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Client" Version="1.5.374.27" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="CHANGELOG.md" />
+      <None Remove="README.md" />
+    </ItemGroup>
+
 </Project>

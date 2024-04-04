@@ -12,7 +12,7 @@ jobs:
   build:
     uses: FrendsPlatform/FrendsTasks/.github/workflows/linux_build_test.yml@main
     with:
-      workdir: Frends.OPCUA.WriteTags/Frends.OPCUA.WriteTags
+      workdir: Frends.OPCUA.WriteTags
       prebuild_command: docker-compose -f ./Frends.OPCUA.WriteTags.Tests/docker-compose.yml up -d
     secrets:
       badge_service_api_key: ${{ secrets.BADGE_SERVICE_API_KEY }}
