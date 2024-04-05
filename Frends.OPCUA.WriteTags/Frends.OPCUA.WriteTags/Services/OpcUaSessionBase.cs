@@ -28,6 +28,9 @@ internal abstract class OpcUaSessionBase
             var endpointConfiguration = EndpointConfiguration.Create(ClientConfig);
             var endpoint = new ConfiguredEndpoint(null, endpointDescription, endpointConfiguration);
 
+            // creates session using default factory
+            // can throw exception in case no valid connection can be made, ex. bad port, authentication, certificates
+            // ConfigureAwait(false) adds slight performance boost and can avoid deadlocks when used with SynchronizationContext
             var session =
                 await f.CreateAsync(
                     ClientConfig,

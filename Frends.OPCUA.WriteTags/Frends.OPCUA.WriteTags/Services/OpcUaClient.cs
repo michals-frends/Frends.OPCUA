@@ -32,7 +32,10 @@ internal class OpcUaClient : OpcUaSessionBase, IOpcUaClient
                 }
             });
 
-            var response = await session.WriteAsync(null, new WriteValueCollection(toBeWritten), ct);
+            // ConfigureAwait(false) adds slight performance boost and can avoid deadlocks when used with SynchronizationContext
+            var response = await session
+                .WriteAsync(null, new WriteValueCollection(toBeWritten), ct)
+                .ConfigureAwait(false);
 
             //map to writeResult
             result.Results = writeValues.Select((valueResult, i) => new WriteValueResult
