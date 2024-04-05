@@ -8,6 +8,4 @@ services:
     ports:
       - "62541:62541"
     volumes:
-      - type: bind
-        source: "OPC Foundation"
-        target: "/root/.local/share/OPC Foundation"
+      - ./OPC Foundation/:/root/.local/share/OPC Foundation
