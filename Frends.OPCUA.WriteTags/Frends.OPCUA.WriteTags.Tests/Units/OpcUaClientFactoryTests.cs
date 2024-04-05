@@ -14,11 +14,11 @@ public class OpcUaClientFactoryTests
         var sut = new OpcUaClientFactory();
 
         var client = sut.CreateClient(input, options);
-        
+
         Assert.NotNull(client);
         Assert.IsType<OpcUaClient>(client);
     }
-    
+
     [Fact]
     public void SetsClientIdentity_OnUserIdentityOption()
     {
@@ -33,13 +33,13 @@ public class OpcUaClientFactoryTests
         var sut = new OpcUaClientFactory();
 
         var client = sut.CreateClient(input, options);
-        
+
         Assert.NotNull(client);
         var opcUaClient = Assert.IsType<OpcUaClient>(client);
-        
+
         Assert.NotNull(opcUaClient.UserIdentity);
     }
-    
+
     [Fact]
     public void AcceptCert_OnTrustServerCertOption()
     {
@@ -53,7 +53,7 @@ public class OpcUaClientFactoryTests
 
         Assert.True(sut.ShouldAcceptCertificate(options, ""));
     }
-    
+
     [Fact]
     public void RejectCert_OnInvalidServerCertOption()
     {

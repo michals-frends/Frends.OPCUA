@@ -13,7 +13,7 @@ public class WriteTagsTaskTests
     {
         var client = Substitute
             .For<IOpcUaClient>();
-        client.WriteDataAsync(Arg.Any<WriteTagValue[]>()).Returns(new WriteResult {IsAllSuccess = true});
+        client.WriteDataAsync(Arg.Any<WriteTagValue[]>()).Returns(new WriteResult { IsAllSuccess = true });
 
         var factory = Substitute
             .For<IOpcUaClientFactory>();
@@ -23,11 +23,11 @@ public class WriteTagsTaskTests
         OPCUA.ClientFactory = factory;
 
         var writeTags = await OPCUA.WriteTags(new Input(), new Options(), new CancellationToken());
-        
+
         Assert.NotNull(writeTags);
         Assert.True(writeTags.IsAllSuccess);
     }
-    
+
     [Fact]
     public async Task ReturnsFailure_OnClientError()
     {
@@ -44,7 +44,7 @@ public class WriteTagsTaskTests
         OPCUA.ClientFactory = factory;
 
         var writeTags = await OPCUA.WriteTags(new Input(), new Options(), new CancellationToken());
-        
+
         Assert.False(writeTags.IsAllSuccess);
         Assert.Equal(expectedMessage, writeTags.Reason);
     }

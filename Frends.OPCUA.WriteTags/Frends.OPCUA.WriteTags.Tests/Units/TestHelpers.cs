@@ -2,7 +2,7 @@
 
 namespace Frends.OPCUA.WriteTags.Tests.Units;
 
-public class TestTaskInput: Input
+public class TestTaskInput : Input
 {
     public TestTaskInput()
     {

@@ -12,7 +12,7 @@ public class OpcUaClientIntegrationTests
         NodeId = "ns=2;s=Scalar_Static_Int32",
         Value = 100
     };
-    
+
     [Fact]
     public async Task ThrowsError_OnBadUrl()
     {
@@ -48,7 +48,7 @@ public class OpcUaClientIntegrationTests
             TrustServerCertificate = true
         };
         var sut = _factory.CreateClient(input, options);
-        
+
         var response = await sut.WriteDataAsync(new[] { _writeTagInt });
 
         Assert.NotNull(response);
@@ -57,7 +57,7 @@ public class OpcUaClientIntegrationTests
         Assert.Equal(_writeTagInt.NodeId, response.Results[0].NodeId);
         Assert.Equal(_writeTagInt.Value, response.Results[0].Value);
     }
-    
+
     [Fact]
     public async Task ReturnsResult_OnUserAuthWriteRequest()
     {
@@ -74,7 +74,7 @@ public class OpcUaClientIntegrationTests
             TrustServerCertificate = true
         };
         var sut = _factory.CreateClient(input, options);
-        
+
         var response = await sut.WriteDataAsync(new[] { _writeTagInt });
 
         Assert.NotNull(response);
@@ -83,7 +83,7 @@ public class OpcUaClientIntegrationTests
         Assert.Equal(_writeTagInt.NodeId, response.Results[0].NodeId);
         Assert.Equal(_writeTagInt.Value, response.Results[0].Value);
     }
-    
+
     [Fact]
     public async Task Throws_OnInvalidRequest()
     {

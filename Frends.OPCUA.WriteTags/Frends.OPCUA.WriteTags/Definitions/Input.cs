@@ -15,7 +15,7 @@ public class Input
     [DefaultValue("opc.tcp://localhost:62541/Quickstarts/ReferenceServer")]
     [DisplayFormat(DataFormatString = "Text")]
     public string Url { get; set; }
-    
+
     /// <summary>
     /// Array of values to be written to server.
     /// </summary>
@@ -32,7 +32,7 @@ public class Input
 public class WriteTagValue
 {
     /// <summary>
-    /// NodeId in string format, for details please refer to OPC Specifications Address Space Model setions 7.2 and 5.2.2
+    /// NodeId in string format, for details please refer to OPC Specifications Address Space Model sections 7.2 and 5.2.2
     /// </summary>
     public string NodeId { get; set; }
     /// <summary>

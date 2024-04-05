@@ -13,7 +13,7 @@ public static class OPCUA
     /// Static client factory used to instantiate OPC UA client, used also in tests
     /// </summary>
     public static IOpcUaClientFactory ClientFactory { get; set; } = new OpcUaClientFactory();
-    
+
     /// <summary>
     /// Main task method responsible for writing tags to OPC UA server
     /// </summary>

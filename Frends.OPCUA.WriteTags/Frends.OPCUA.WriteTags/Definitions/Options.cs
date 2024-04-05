@@ -14,7 +14,7 @@ public class Options
     /// <example>FrendsTask-001</example>
     [DefaultValue("FrendsTask")]
     public string ApplicationName { get; set; }
-    
+
     /// <summary>
     /// Set if all server certificates should be trusted
     /// </summary>
@@ -27,7 +27,7 @@ public class Options
     /// <example>4095d7a9ea98e84ad5372f30a894afdae5962206</example>
     [DefaultValue("")]
     public string TrustedCertificateThumbprint { get; set; }
-    
+
     /// <summary>
     /// Method of client authentication
     /// </summary>

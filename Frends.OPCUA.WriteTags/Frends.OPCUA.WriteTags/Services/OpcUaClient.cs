@@ -17,7 +17,7 @@ internal class OpcUaClient : OpcUaSessionBase, IOpcUaClient
 
         var result = new WriteResult();
         var session = await CreateSessionAsync(ct).ConfigureAwait(false);
-        
+
         ct.ThrowIfCancellationRequested();
 
         try

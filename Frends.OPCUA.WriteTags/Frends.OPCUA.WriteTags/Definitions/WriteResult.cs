@@ -9,12 +9,12 @@ public class WriteResult
     /// Indicates that all writes were OK
     /// </summary>
     public bool IsAllSuccess { get; set; }
-    
+
     /// <summary>
     /// Array of WriteValueResult for each write operation
     /// </summary>
     public WriteValueResult[] Results { get; set; } = Array.Empty<WriteValueResult>();
-    
+
     /// <summary>
     /// Optional error description in case of failed writes
     /// </summary>
@@ -30,12 +30,12 @@ public class WriteValueResult
     /// NodeId where was write attempt
     /// </summary>
     public string NodeId { get; set; }
-    
+
     /// <summary>
     /// Value to be written
     /// </summary>
     public object Value { get; set; }
-    
+
     /// <summary>
     /// Status of operation, can be Good, Uncertain or Bad
     /// </summary>
